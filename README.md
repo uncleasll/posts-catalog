@@ -5,15 +5,15 @@
 > **API Docs:** `{BACKEND_URL}/docs`
 
 ## Tech stack
-frontend: React 18, typescript, vite
-styling: tailwind css
-auth; firebase (email/password)
-http:axios
-backend: Python 3.12, FastAPI
-ORM: SQAlchemy 2
-Database: Sqlite (default)/ postfresSQL (plus)
-container: docker, docker-compose
-deploy: render (backend), vercal (frontend)
+- **Frontend:** React 18, typeScript, vite
+- **Styling:** tailwind css
+- **Auth:** Firebase (email/password)
+- **HTTP:** Axios
+- **Backend:** Python 3.12, FastAPI
+- **ORM:** SQLAlchemy 2
+- **Database:** SQLite (default) / postgreSQL (plus)
+- **Container:** Docker, docker-compose
+- **Deploy:** render (backend), vercel (frontend)
 
 
 
