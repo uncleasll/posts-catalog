@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --parchment: #f5f0e8;
+    --ink-950: #261f1a;
+    --sepia: #8B6914;
+    --rust: #C4622D;
+    --sage: #5C7A5C;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--parchment);
+    color: var(--ink-950);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ink-950 text-parchment font-body font-medium px-6 py-2.5 rounded-sm
+           hover:bg-ink-800 active:scale-[0.98] transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply border border-ink-300 text-ink-700 font-body font-medium px-6 py-2.5 rounded-sm
+           hover:bg-ink-100 active:scale-[0.98] transition-all duration-150;
+  }
+
+  .btn-danger {
+    @apply text-rust border border-rust/30 font-body font-medium px-3 py-1.5 rounded-sm text-sm
+           hover:bg-rust hover:text-white active:scale-[0.98] transition-all duration-150;
+  }
+
+  .input-field {
+    @apply w-full border border-ink-200 bg-white/60 rounded-sm px-4 py-2.5
+           font-body text-ink-900 placeholder-ink-400
+           focus:outline-none focus:ring-1 focus:ring-ink-400 focus:border-ink-400
+           transition-colors duration-150;
+  }
+
+  .card {
+    @apply bg-white/70 border border-ink-100 rounded-sm shadow-sm
+           hover:shadow-md hover:border-ink-200 transition-all duration-200;
+  }
+
+  .category-badge {
+    @apply inline-block text-xs font-mono font-medium uppercase tracking-widest
+           px-2 py-0.5 rounded-sm border;
+  }
+}
+
+/* Texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--parchment); }
+::-webkit-scrollbar-thumb { background: #bfb49f; border-radius: 3px; }
+
+/* Loading skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #e8e2d6 25%, #f0ebe1 50%, #e8e2d6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
